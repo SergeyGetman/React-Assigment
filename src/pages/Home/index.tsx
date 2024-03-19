@@ -8,18 +8,21 @@ import {
   DefaultBackgroundTheme,
   LoadingSpiner,
   MakeStylesAnimation,
-  WrapperMuiSelect
+  WrapperMuiSelect,
 } from "../../components/Ui_Layout/Visual.style";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
-import {CircularProgress} from "@mui/material";
+import { CircularProgress, Typography } from "@mui/material";
+import { MOCKDATA } from "../../store";
 
 const Home = () => {
   const { data, isLoading, isError } = useQuery("apiData", fetchAPI);
 
   if (isLoading) {
-    return     <LoadingSpiner>
-      <CircularProgress color="primary" />
-    </LoadingSpiner>;
+    return (
+      <LoadingSpiner>
+        <CircularProgress color="primary" />
+      </LoadingSpiner>
+    );
   }
 
   if (isError) {
@@ -34,14 +37,13 @@ const Home = () => {
         <VisualForm />
 
         <WrapperMuiSelect>
-          <AccountCircleIcon />  <MultipleSelect data={filteredData} />
+          <AccountCircleIcon />
+          <MultipleSelect data={filteredData} />
         </WrapperMuiSelect>
 
-
         <MakeStylesAnimation>
-          <h1>HELLO BIMBO </h1>
+          <p>{MOCKDATA.nickname} </p>
         </MakeStylesAnimation>
-
       </DefaultBackgroundTheme>
     </div>
   );

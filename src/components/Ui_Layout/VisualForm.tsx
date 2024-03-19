@@ -1,25 +1,26 @@
 import React from "react";
-import {Avatar, Box, CircularProgress, LinearProgress} from "@mui/material";
+import { Avatar, Box, CircularProgress } from "@mui/material";
 
-
+import LinearProgress from "@mui/material/LinearProgress";
 
 import {
   DefaultBackgroundTheme,
+  GraddienList,
   MuiBaseInputViewContentContainer,
 } from "./Visual.style";
+import Stack from "@mui/material/Stack";
+import Linears from "../Linears/Linears";
 
 const VisualForm = () => {
   return (
     <>
       <MuiBaseInputViewContentContainer>
-        <DefaultBackgroundTheme>Hi there</DefaultBackgroundTheme>
-        <Box sx={{ display: "flex", gap: 2, alignItems: "center", flexWrap: "wrap" }}>
+        <Stack sx={{ width: "100%" }} spacing={2}>
+          <LinearProgress color="secondary" />
+          <LinearProgress color="success" />
+        </Stack>
 
-          <LinearProgress color="secondary"/>
-
-
-
-        </Box>
+        <Linears color={"secondary"} />
       </MuiBaseInputViewContentContainer>
     </>
   );

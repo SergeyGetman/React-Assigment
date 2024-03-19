@@ -53,7 +53,7 @@ export default function MultipleSelect({ data = [] }) {
   };
 
   return (
-    <Stack spacing={3} sx={{ width: "100%" }}>
+    <Stack spacing={3} sx={{ width: "100%", height: "100px" }}>
       <Autocomplete
         multiple
         id="tags-outlined"
@@ -76,6 +76,7 @@ export default function MultipleSelect({ data = [] }) {
             {...params}
             label="filterSelectedOptions"
             placeholder="Favorites"
+            color="secondary"
           />
         )}
         onInputChange={(e) =>
@@ -83,14 +84,35 @@ export default function MultipleSelect({ data = [] }) {
         }
         renderTags={(value: multiselectProps[], getTagProps: any) =>
           value.map((option: multiselectProps, index: number) => (
-            <span {...getTagProps({ index })} key={option.name}>
-              <div style={{ display: "flex", alignItems: "center" }}>
+            <span
+              {...getTagProps({ index })}
+              key={option.name}
+              style={{ color: "white" }}
+            >
+              <div
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  height: "100px",
+                }}
+              >
                 {symbolsArray.map((m: symbolProps) => {
                   if (m.id === option.id) {
-                    return <span style={{ margin: "0 5px" }}>{m.symbol}</span>;
+                    return (
+                      <span
+                        style={{
+                          margin: "0 5px",
+                          backgroundColor: "black",
+                          color: "white",
+                        }}
+                      >
+                        {m.symbol}
+                      </span>
+                    );
                   }
                 })}
                 <Chip
+                  sx={{ color: "white" }}
                   variant="outlined"
                   label={option.name}
                   {...getTagProps({ index })}

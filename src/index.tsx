@@ -9,8 +9,6 @@ ReactDOM.createRoot(document.getElementById("root")).render(
   <>
     <ThemeProvider theme={theme}>
       <DefaultBackgroundHome>
-            
-
         <App />
       </DefaultBackgroundHome>
     </ThemeProvider>

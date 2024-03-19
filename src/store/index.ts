@@ -13,7 +13,7 @@ export const useSelectedTags = create<SelectedTagsProps>()((set) => ({
   setSymbolsArray: (value, lastID) => {
     set((state: any) => {
       const filteredArray = state.symbolsArray.filter(
-        (symbol: symbolProps) => symbol.id !== lastID
+        (symbol: symbolProps) => symbol.id !== lastID,
       );
       return {
         symbolsArray: [...filteredArray, { symbol: value, id: lastID }],
@@ -21,3 +21,7 @@ export const useSelectedTags = create<SelectedTagsProps>()((set) => ({
     });
   },
 }));
+
+export const MOCKDATA = {
+  nickname: "SERGEY GETMAN",
+};
